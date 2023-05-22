@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Picture Viewer</title>
+<style>
+body
+{
+   background-color: #000000;
+   color: #FFFFFF;
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 16px;
+   text-align: center;
+}
+#pic
+{
+   width: 600px;
+   height: 400px;
+   border: 1px solid #FFFFFF;
+}
+#caption
+{
+   width: 600px;
+   height: 50px;
+   border: 1px solid #FFFFFF;
+   /*center the caption box*/
+    margin: 0 auto;
+
+}
+#buttons
+{
+   width: 600px;
+   height: 50px;
+        position: relative;
+   border: 1px solid #FFFFFF;
+   /*buttons below the link*/
+    margin-top: 10px;
+    /*center the caption box*/
+    margin: 0 auto;
+}
+#link
+{
+   width: 600px;
+    height: 50px;
+    position: relative;
+   border: 1px solid #FFFFFF;
+    /*center the caption box*/
+    margin: 0 auto;
+   
+}
+
+</style>
+</head>
+<body>
+<script>
+//Global Arrays
+var picarray = new Array(5);
+var captionarray = new Array(5);
+var picnum = 0;
+var picmax = 4;
+var picmin = 0;
+var linkarray = new Array(5);
+
+
+function loadArray()
+{
+   picarray[0] = "pics/GreatOceanRoad,Australia.jpg";
+   picarray[1] = "pics/IsleofSkye,Scotland.jpg";
+   picarray[2] = "pics/MilfordSound,NewZealand.jpg";
+   picarray[3] = "pics/Prague,CzechRepublic.jpg";
+   picarray[4] = "pics/Seychelles.jpg";
+   captionarray[0] = "Great Ocean Road, Australia.";
+   captionarray[1] = "Isle of Skye, Scotland.";
+   captionarray[2] = "Milford Sound, New Zealand.";
+   captionarray[3] = "Prague, Czech Republic.";
+   captionarray[4] = "Seychelles.";
+   linkarray[0] = "https://en.wikipedia.org/wiki/Great_Ocean_Road";
+   linkarray[1] = "https://en.wikipedia.org/wiki/Isle_of_Skye";
+   linkarray[2] = "https://en.wikipedia.org/wiki/Milford_Sound";
+   linkarray[3] = "https://en.wikipedia.org/wiki/Prague";
+   linkarray[4] = "https://en.wikipedia.org/wiki/Seychelles";
+}
+
+function getElementById(id)
+{
+   return document.getElementById(id);
+}
+
+function showPic()
+{
+   getElementById("pic").src = picarray[picnum];
+   getElementById("caption").innerHTML = captionarray[picnum];
+   getElementById("link").href = linkarray[picnum];
+}
+
+function nextPic()
+{
+   if(picnum<picmax)
+   {
+      picnum++;
+      showPic();
+   }
+}
+
+function prevPic()
+{
+   if(picnum>picmin)
+   {
+      picnum--;
+      showPic();
+   }
+}
+
+function firstPic()
+{
+   picnum = picmin;
+   showPic();
+}
+
+function lastPic()
+{
+   picnum = picmax;
+   showPic();
+}
+
+</script>
+
+
+<h1>Picture Viewer</h1>
+<img id="pic" src="pics/GreatOceanRoad,Australia.jpg" alt="Great Ocean Road, Australia.">
+<p id="caption">Great Ocean Road, Australia.</p>
+<a id="link" href="https://en.wikipedia.org/wiki/Great_Ocean_Road">Informational Link.</a>
+
+<div id="buttons">
+   <button onclick="firstPic()">First</button>
+   <button onclick="prevPic()">Previous</button>
+   <button onclick="nextPic()">Next</button>
+   <button onclick="lastPic()">Last</button>
+</div>
+
+
+<script>
+loadArray();
+showPic();
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+

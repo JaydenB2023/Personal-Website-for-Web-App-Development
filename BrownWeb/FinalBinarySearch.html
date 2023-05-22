@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>JavaScript Bubble Sort and Binary Search Example</title>
+    <style>
+        /*two column layout*/
+        /*name on left phone on right*/
+         body
+         {
+            background-color: #f0f0f0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            color: #000000;
+            margin: 0px;
+            padding: 0px;
+         }
+    </style>
+   <script>
+       //Global Arrays
+      var NameArray = new Array (20);
+      var PhoneArray = new Array (20);
+
+      function loadArray()
+      {
+         NameArray[0]="Mabel";
+         NameArray[1]="Wally";
+         NameArray[2]="Bubba";
+         NameArray[3]="Peggy";
+         NameArray[4]="Dolly";
+         NameArray[5]="Willy";
+         NameArray[6]="Sally";
+         NameArray[7]="Jane";
+         NameArray[8]="Dick";
+         NameArray[9]="Spot";
+         NameArray[10]="Zeek";
+         NameArray[11]="Johnny";
+         NameArray[12]="Vito";
+         NameArray[13]="Michael";
+         NameArray[14]="Fredo";
+         NameArray[15]="Mo";
+         NameArray[16]="Luca";
+         NameArray[17]="Tom";
+         NameArray[18]="Sonny";
+         NameArray[19]="Connie";
+	
+         PhoneArray[0]="555-1010";
+         PhoneArray[1]="641-3320";
+         PhoneArray[2]="998-4407";
+         PhoneArray[3]="455-6767";
+         PhoneArray[4]="641-3174";
+         PhoneArray[5]="641-3406";
+         PhoneArray[6]="641-3174";
+         PhoneArray[7]="931-3346";
+         PhoneArray[8]="931-3346";
+         PhoneArray[9]="931-3346";
+         PhoneArray[10]="741-1179";
+         PhoneArray[11]="741-1179";
+         PhoneArray[12]="729-2414";
+         PhoneArray[13]="729-2414";
+         PhoneArray[14]="729-2414";
+         PhoneArray[15]="641-3101";
+         PhoneArray[16]="641-3409";
+         PhoneArray[17]="555-7865";
+         PhoneArray[18]="788-6543";
+         PhoneArray[19]="222-9999";
+      }
+
+      function sortIt()
+      {
+         //improve the efficiency of the bubble sort by changing the loop structure
+         //so that the loop stops when the array is sorted
+         let sorted = false;
+         let temp = "";
+         while(sorted==false)
+         {
+            sorted = true;
+            for(let i=0; i<19; i++)
+            {
+               if(NameArray[i]>NameArray[i+1])
+               {
+                  temp = NameArray[i];
+                  NameArray[i] = NameArray[i+1];
+                  NameArray[i+1] = temp;
+                  temp = PhoneArray[i];
+                  PhoneArray[i] = PhoneArray[i+1];
+                  PhoneArray[i+1] = temp;
+                  sorted = false;
+               }
+            }
+         }
+         
+      }
+      function getElementById(id)
+      {
+         return document.getElementById(id);
+      }
+      
+      //functions to let the user up a phone number using binary or linear search
+      function findIt()
+      {
+         let name = document.getElementById("nametxt").value;
+         let found = false;
+         let i = 0;
+         let phone = "";
+         while(found==false && i<20)
+         {
+            if(NameArray[i]==name)
+            {
+               found = true;
+               phone = PhoneArray[i];
+            }
+            i++;
+         }
+         if(found==true)
+         {
+            document.getElementById("phoneOut").innerHTML = phone;
+         }
+         else
+         {
+            document.getElementById("phoneOut").innerHTML = "Not Found";
+         }
+         
+        }
+	</script>
+             </head>
+            <body onLoad = "loadArray()">
+                      <h1>Bubble Sort and Binary Search</h1>
+                      <h2>"Must Sort First Before Performing Binary Search"</h2>
+	      <br><br>
+	      <form id= "body">
+            <div>
+               <input type="button" value="Sort" onClick="sortIt()">
+               <input type="button" value="Find" onClick="findIt()">
+               <input type="text" id="nametxt">
+               <span id="phoneOut"></span>
+            </div>
+		</form>
+	</body>
+</html>

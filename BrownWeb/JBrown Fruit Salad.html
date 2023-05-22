@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Array Methods Lab</title>
+        <script>
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //Programmer: Jayden Brown
+            //Date: 2/10/2023
+            //Summary:
+            // This page uses the highly contraversial quick and dirty "document.write" method.
+            // Read all about the undesirable performance issues associated with it.
+            // We'll use it in this lab so you have exposure to it, but we won't use it again.
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //Declare and populate Global Arrays:
+
+            var Apples = ["Delicious", "Honey Crisp", "Jonathan", "Granny Smith"];
+            var Oranges = ["Trifoliate", "Naval", "Bergamot", "Seville"];
+
+ 
+           function RollDie()
+           {
+                let die= (Math.floor(Math.random() * 6))+1; //generates random numbers between 1 and 6
+                alert(die);
+                alert(heading1.innerHTML);
+           }
+
+
+            function DoArrayTasks() 
+            {
+               
+                //This method drives the entire page:
+                DisplayArrays();
+                SortApplesAndOranges();
+                ReverseSortApplesAndOranges();
+                MergeApplesAndOranges();
+                AddApple();
+                MakeFruitSalad();
+            }
+      
+            function DisplayArrays()
+            {
+               document.write("<h2>Original Arrays</h2>");
+               document.write("Apples: " + Apples);
+               SpaceIt(1);
+               document.write("Oranges: " + Oranges);
+                SpaceIt(1);
+               document.write("<h4>Add a function at the end to Make Fruit Salad</h4>");
+             }
+
+            function SpaceIt(pNumBr) 
+            {
+                
+               //This is a generic method for breating vertical spacing
+                for (var i = 0; i <= pNumBr; i++) 
+                {
+                    document.write("<br>");
+                }
+            }
+
+            function SortApplesAndOranges() {
+                
+                //JS array sort method
+                document.write("<h3>Arrays Sorted in Ascending Order:   .sort</h3>");
+                Apples.sort();
+                Oranges.sort();
+                document.write("Apples: " + Apples);
+                document.write("Oranges: " + Oranges);
+                SpaceIt(2);
+            }
+
+            function ReverseSortApplesAndOranges() 
+            {
+             
+                //JS array reverse method 
+                document.write("<h3>Arrays Sorted in Descending Order:   .reverse</h3>");
+                Apples.reverse();
+                Oranges.reverse();
+                document.write("Apples: " + Apples);
+                document.write("Oranges: " + Oranges);
+                SpaceIt(2);
+            }
+
+            function MergeApplesAndOranges() {
+                
+                document.write("<h3>Orange Array Appended to Apple Array:   .concat</h3>");
+                let bothArray = Apples.concat(Oranges);
+                document.write("Add Apples And Oranges: " + bothArray);
+                SpaceIt(2);
+            }
+
+            function AddApple() 
+           {
+               
+                //document.write(heading1.innerHTML);
+                document.write("<h3>Add an Element to the Front of Apple Array:   .unshift</h3>");
+                Apples.unshift("Red Rome");
+                document.write("Apples: " + Apples);
+                SpaceIt(2);
+            }
+
+            function MakeFruitSalad()     
+           { 
+               // Figure out how to generate random number and use CS2 "Card Shuffle Logic
+               //create a loop with a limit of the length of the array
+               //generate a random number between 0 and the length of the array -1
+               for (var i = 0; i < Apples.length; i++) 
+               {
+                   let randNum = Math.floor(Math.random() * Apples.length);
+                   let temp = Apples[i];
+                   Apples[i] = Apples[randNum];
+                   Apples[randNum] = temp;
+               }
+                for (var i = 0; i < Oranges.length; i++) 
+                {
+                     let randNum = Math.floor(Math.random() * Oranges.length);
+                     let temp = Oranges[i];
+                     Oranges[i] = Oranges[randNum];
+                     Oranges[randNum] = temp;
+                }
+                document.write("<h3>Make Fruit Salad:   .sort</h3>");
+                document.write("Apples: " + Apples);
+                document.write("Oranges: " + Oranges);
+                SpaceIt(2);
+           }
+           
+        </script>
+    </head>
+
+    <body>
+        <h1 id="heading1">JavaScript Array Method Examples</h1>
+        <br>
+        <form id="myForm1">
+            <input type="button" value="Click" onclick="DoArrayTasks()">
+            <br><br>
+            <input type="button" value="Roll" onclick="RollDie()">
+            <br><br>
+        </form>
+        <a href="https://www.w3schools.com/js/js_array_methods.asp#:~:text=JavaScript%20Array%20Methods%201%20Converting%20Arrays%20to%20Strings,%28%29%20...%208%20Changing%20Elements%20...%20More%20items">Link to W3Schools List of Array Methods</a>
+        <br>
+        <a href="https://www.linkedin.com/pulse/bad-practices-document-write-fatima-hassan/">Is it good to use document.write()?</a>
+</body>
+</html>

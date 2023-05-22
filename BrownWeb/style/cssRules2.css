@@ -1,0 +1,65 @@
+#FancyStartLtr
+{
+  color: #FFFFFF;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 36px;
+}
+
+#LeftAreaRule
+{
+  width: 75%;
+  background-color: #a4bce7; 
+  float: left;
+  color: black;
+}
+
+
+#NavArea2
+{
+  padding: 30px 0px 0px 10px;
+  width: 100%;
+  background-color: #000000;    
+  color: white;
+  float: right;
+  height: 75px;
+}
+
+#RightAreaRule2
+{
+  text-align: center;
+  width: 25%;
+  background-color: #4e56aa;    
+  color: white;
+  float: right;
+  height: 650px;
+}
+
+#PictureArea2
+{
+   padding: 20px 0px 20px 0px;
+   margin:0px 0px 0px 220px;
+   Width: 50%;
+   Height: 95%;
+   text-align: center;
+   background-color: #000000;
+
+}
+
+.MainHeading
+{
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 25px;
+  text-align: center;
+}
+
+.BackColor
+{
+    background-color: #000000;
+}
+
+.Main
+{
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 20px;
+  text-align: center;
+}
